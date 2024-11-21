@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin-top: 5px;
+}
+
+#grid-container {
+    width: 400px;
+    height: 400px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 2px;
+    background-color: #ccc;
+    border: 2px solid #333;
+}
+
+#pieces-container {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.puzzle-piece {
+    width: 100px;
+    height: 100px;
+    background-size: 400px 400px;
+    background-repeat: no-repeat;
+    cursor: grab;
+    border: 2px solid #333;
+}
+
+.grid-slot {
+    width: 100px;
+    height: 100px;
+    background-color: #eee;
+    border: 2px dashed #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.grid-slot.correct {
+    border-color: green;
+}
+
+.grid-slot.incorrect {
+    border-color: red;
+}
+
+.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+}
+
+.hidden {
+    display: none;
+}
+
+#completion-message {
+    margin-top: 20px;
+    font-size: 24px;
+    color: green;
+    font-weight: bold;
+}
+
+#next-page-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+#next-page-button:hover {
+    background-color: #0056b3;
+}
