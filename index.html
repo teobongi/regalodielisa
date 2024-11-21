@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Interattivo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Puzzle Interattivo</h1>
+    <p>Trascina i pezzi nella griglia. I pezzi errati possono essere riposizionati!</p>
+
+    <!-- Contenitore del puzzle -->
+    <div id="grid-container"></div>
+
+    <!-- Contenitore dei pezzi -->
+    <div id="pieces-container"></div>
+
+    <!-- Messaggio di completamento -->
+    <div id="completion-message" class="hidden">
+        <p>Congratulazioni! Hai completato il puzzle!</p>
+        <a href="success.html" id="next-page-button" class="hidden-button">Vai alla pagina successiva</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
