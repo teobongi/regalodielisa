@@ -4,7 +4,7 @@ const completionMessage = document.getElementById('completion-message');
 const nextPageButton = document.getElementById('next-page-button');
 
 // URL dell'immagine personalizzabile
-const imageUrl = 'https://via.placeholder.com/400'; // Cambia con l'URL della tua immagine
+const imageUrl = 'londra.jpeg'; // Cambia con l'URL della tua immagine
 
 // Configurazione del puzzle
 const rows = 4;
