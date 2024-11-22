@@ -1,9 +1,11 @@
+/* Stili generali */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #f4f4f9;
     margin: 0;
     padding: 20px;
+    overflow: hidden; /* Previene scrolling indesiderato */
 }
 
 h1 {
@@ -24,6 +26,7 @@ p {
     gap: 2px;
     background-color: #ccc;
     border: 2px solid #333;
+    touch-action: none; /* Impedisce lo scroll durante il tocco */
 }
 
 #pieces-container {
@@ -32,6 +35,7 @@ p {
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
+    touch-action: none; /* Impedisce lo scroll durante il tocco */
 }
 
 .puzzle-piece {
@@ -41,6 +45,7 @@ p {
     background-repeat: no-repeat;
     cursor: grab;
     border: 2px solid #333;
+    touch-action: none; /* Impedisce lo scroll durante il tocco */
 }
 
 .grid-slot {
@@ -91,6 +96,8 @@ p {
 
 #next-page-button:hover {
     background-color: #0056b3;
+}
+
 /* Responsività */
 @media (max-width: 600px) {
     #grid-container {
@@ -117,3 +124,4 @@ p {
         height: 60px;
     }
 }
+
