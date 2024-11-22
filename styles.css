@@ -17,8 +17,8 @@ p {
 }
 
 #grid-container {
-    width: 415px;
-    height: 415px;
+    width: 400px;
+    height: 400px;
     margin: 20px auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
