@@ -3,7 +3,7 @@ const piecesContainer = document.getElementById('pieces-container');
 const completionMessage = document.getElementById('completion-message');
 
 // URL dell'immagine personalizzabile
-const imageUrl = 'london.jpeg'; // Cambia con l'URL della tua immagine
+const imageUrl = 'londra.jpeg'; // Cambia con l'URL della tua immagine
 
 // Configurazione del puzzle
 const rows = 4;
