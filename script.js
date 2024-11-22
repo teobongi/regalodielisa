@@ -1,7 +1,6 @@
 const gridContainer = document.getElementById('grid-container');
 const piecesContainer = document.getElementById('pieces-container');
 const completionMessage = document.getElementById('completion-message');
-const nextPageButton = document.getElementById('next-page-button');
 
 // URL dell'immagine personalizzabile
 const imageUrl = 'londra.jpeg'; // Cambia con l'URL della tua immagine
@@ -32,7 +31,6 @@ function createPuzzle() {
             piece.style.backgroundImage = `url(${imageUrl})`;
             piece.style.backgroundPosition = `${-col * 100}px ${-row * 100}px`;
             piece.dataset.position = `${row}-${col}`;
-            piece.draggable = true;
             pieces.push(piece);
             piecesContainer.appendChild(piece);
 
@@ -110,14 +108,6 @@ function handleTouchEnd(e) {
         }
     }
 
-    // Rimuovi il segnale di errore quando il pezzo viene spostato
-    const slots = document.querySelectorAll('.grid-slot.incorrect');
-    slots.forEach(slot => {
-        if (!slot.children.length) {
-            slot.classList.remove('incorrect');
-        }
-    });
-
     draggingPiece = null;
 
     // Controlla il completamento del puzzle
@@ -127,74 +117,6 @@ function handleTouchEnd(e) {
         completionMessage.classList.add('hidden');
     }
 }
-
-// Drag-and-drop (per dispositivi non touch)
-piecesContainer.addEventListener('dragstart', e => {
-    if (e.target.classList.contains('puzzle-piece')) {
-        e.dataTransfer.setData('text/plain', e.target.dataset.position);
-        e.target.classList.add('dragging');
-    }
-});
-
-piecesContainer.addEventListener('dragend', e => {
-    if (e.target.classList.contains('puzzle-piece')) {
-        e.target.classList.remove('dragging');
-    }
-});
-
-gridContainer.addEventListener('dragstart', e => {
-    if (e.target.classList.contains('puzzle-piece')) {
-        e.dataTransfer.setData('text/plain', e.target.dataset.position);
-        e.target.classList.add('dragging');
-    }
-});
-
-gridContainer.addEventListener('dragend', e => {
-    if (e.target.classList.contains('puzzle-piece')) {
-        e.target.classList.remove('dragging');
-    }
-});
-
-gridContainer.addEventListener('dragover', e => {
-    e.preventDefault();
-});
-
-gridContainer.addEventListener('drop', e => {
-    e.preventDefault();
-    const draggingPosition = e.dataTransfer.getData('text/plain');
-    const draggingPiece = document.querySelector(`.puzzle-piece[data-position="${draggingPosition}"]`);
-    const targetSlot = e.target.closest('.grid-slot');
-
-    if (draggingPiece && targetSlot) {
-        if (targetSlot.children.length === 0) {
-            targetSlot.appendChild(draggingPiece);
-
-            // Verifica se è corretto
-            if (targetSlot.dataset.position === draggingPiece.dataset.position) {
-                targetSlot.classList.add('correct');
-                targetSlot.classList.remove('incorrect');
-            } else {
-                targetSlot.classList.add('incorrect');
-                targetSlot.classList.remove('correct');
-            }
-        }
-    }
-
-    // Rimuovi il segnale di errore quando il pezzo viene spostato
-    const slots = document.querySelectorAll('.grid-slot.incorrect');
-    slots.forEach(slot => {
-        if (!slot.children.length) {
-            slot.classList.remove('incorrect');
-        }
-    });
-
-    // Controlla il completamento del puzzle
-    if (checkCompletion()) {
-        completionMessage.classList.remove('hidden');
-    } else {
-        completionMessage.classList.add('hidden');
-    }
-});
 
 // Inizializza il puzzle
 createPuzzle();
